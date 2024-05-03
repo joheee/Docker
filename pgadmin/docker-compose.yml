@@ -1,15 +1,15 @@
 version: "3.8"
 services:
-  db:
+  dev_server:
     container_name: postgres_container
     image: postgres
     restart: always
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: satuperxdx
-      POSTGRES_DB: test_db
     ports:
       - "5432:5432"
+      
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
