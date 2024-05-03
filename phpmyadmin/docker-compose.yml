@@ -6,7 +6,7 @@ services:
     volumes:
       - ./src:/var/www/html
     ports:
-      - 9000:80
+      - 5051:80
 
   dev_server:
     image: mysql:latest
@@ -18,6 +18,6 @@ services:
     image: phpmyadmin:latest
     restart: always
     ports:
-      - 9001:80
+      - 5052:80
     environment:
       - PMA_ARBITRARY=1
