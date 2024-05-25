@@ -1,0 +1,24 @@
+version: "3"
+services:
+  postgresql:
+    image: postgis/postgis:13-master
+    volumes:
+      - ./data/database:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  directus_cache:
+    image: redis:6
+
+  directus_playground:
+    image: directus/directus:10.10.5
+    ports:
+      - 8055:8055
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    depends_on:
+      - directus_cache
+      - postgresql
+    env_file:
+      - .env
