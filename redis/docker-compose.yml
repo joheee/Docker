@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--requirepass", "redis"]
+    volumes:
+      - data:/data
+    networks:
+      - application_net
+
+volumes:
+  data:
+    driver: local
+
+networks:
+  application_net:
+    external: true
+    driver: bridge

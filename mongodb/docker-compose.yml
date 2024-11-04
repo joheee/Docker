@@ -8,10 +8,11 @@ services:
     ports:
       - "3456:27017"
     volumes:
-      - mongodb_data:/data/db
+      - data:/data/db
       - ./mongodb_logs:/var/log/mongodb
     networks:
       - monitoring_net
+      - application_net
 
   mongodb-exporter:
     image: bitnami/mongodb-exporter:latest
@@ -23,11 +24,16 @@ services:
       - mongo
     networks:
       - monitoring_net
+      - application_net
 
 volumes:
-  mongodb_data:
+  data:
     driver: local
 
 networks:
   monitoring_net:
     external: true
+
+  application_net:
+    external: true
+    driver: bridge
