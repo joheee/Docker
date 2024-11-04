@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+  loki:
+    image: grafana/loki:latest
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki-config.yaml:/etc/loki/loki-config.yaml
+      - ./loki_data:/var/loki
+    command: -config.file=/etc/loki/loki-config.yaml
+    networks:
+      - monitoring_net
+  
+  prometheus:
+    image: prom/prometheus:v2.46.0
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring_net
+  
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3200:3000"
+    networks:
+      - monitoring_net
+
+  promtail:
+    image: grafana/promtail:latest
+    volumes:
+      - ./promtail.yaml:/etc/promtail/promtail.yaml
+      - ./mongodb_logs:/var/log/mongodb
+      - ./loki_data:/var/loki
+    command: -config.file=/etc/promtail/promtail.yaml
+    networks:
+      - monitoring_net
+
+networks:
+  monitoring_net:
+    external: true
