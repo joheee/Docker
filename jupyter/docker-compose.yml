@@ -9,4 +9,5 @@ services:
       - ./work:/home/jovyan/work
     ports:
       - 9010:8888
+    restart: unless-stopped
     command: "start-notebook.sh --NotebookApp.token="
