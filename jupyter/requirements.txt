@@ -3,3 +3,5 @@ pandas
 matplotlib
 supabase
 python-dotenv
+tensorflow
+scikit-learn

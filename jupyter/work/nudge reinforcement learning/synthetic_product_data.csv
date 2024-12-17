@@ -1,0 +1,21 @@
+product_id,product_type,interest_rate,category
+1,Loan,0.017,Premium
+2,Credit Card,0.089,Premium
+3,Investment,0.032,Business
+4,Credit Card,0.027,Premium
+5,Credit Card,0.058,Basic
+6,Investment,0.023,Basic
+7,Savings,0.023,Basic
+8,Investment,0.054,Business
+9,Savings,0.147,Premium
+10,Savings,0.035,Basic
+11,Savings,0.012,Business
+12,Investment,0.117,Premium
+13,Savings,0.123,Business
+14,Loan,0.058,Basic
+15,Investment,0.075,Basic
+16,Loan,0.101,Basic
+17,Savings,0.017,Business
+18,Credit Card,0.143,Business
+19,Savings,0.134,Basic
+20,Loan,0.047,Business
