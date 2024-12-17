@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  dev_server:
+  postgres_database_server:
     container_name: postgres_container
     image: postgres
     restart: always
@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: satuperxdx
     ports:
       - "5432:5432"
-      
+
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
